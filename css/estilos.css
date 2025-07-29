@@ -1,0 +1,125 @@
+/* ================================================== */
+/* ESTILOS CSS - VERSIÓN AJUSTADA CON CONTENEDORES MÁS PEQUEÑOS */
+/* + Reducción de padding y márgenes en unos píxeles */
+/* + Sin modificar alineaciones */
+/* ================================================== */
+
+/* Reset básico */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* Fuentes personalizadas */
+@font-face { font-family: 'robotoregular'; src: url('../fonts/robotoregular.woff2') format('woff2'), url('../fonts/robotoregular.woff') format('woff'); font-weight: normal; font-style: normal; font-display: swap; }
+
+body { font-family: "robotoregular", Roboto, sans-serif; font-size: 16px; line-height: 1.5; color: #333; }
+body, html { max-width: 480px; margin: 0 auto; overflow-x: hidden; }
+
+/* Header (Estilos Iniciales Restaurados) */
+header { background-color: #003087; color: white; padding: 3px 15px; display: flex; align-items: center; width: 100%; }
+.menu-icon svg { width: 24px; height: 24px; } .menu-icon svg path { fill: white; } .logo { margin-left: 10px; } .logo img { width: 55px; height: 46px; display: block; } .header-icons { display: flex; align-items: center; margin-left: auto; gap: 15px; } .header-icons img, .header-icons svg { width: 24px; height: 24px; }
+
+/* Main */
+main { padding: 15px; display: block; }
+
+/* Contenedor del formulario (Reducido) */
+.at-containershadow-secondary { background-color: #fff; box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.17), 0 10px 10px 0 rgba(0, 0, 0, 0.1); box-sizing: border-box; border-radius: 2px; border: 1px solid transparent; display: block; position: relative; padding: 10px; padding-bottom: 16px; max-width: 1170px; width: 100%; margin: 0 auto; }
+
+/* Estilos de fuente (Iniciales Restaurados) */
+.at-font-h2 { font-size: 20px; font-weight: normal; color: #00377D; margin-bottom: 8px; text-align: left; }
+.intro-text { font-size: 16; color: #565656; margin-bottom: 20px; text-align: left !important; }
+
+/* Mensaje de error simple */
+.form-error-message { color: red; margin-bottom: 15px; font-size: 14px; }
+
+/* Opciones de pago (Radios - Estilos Iniciales Restaurados) */
+.opciones-pago { margin: 15px 0; }
+.opciones-pago label.opcion-label { display: flex; align-items: center; font-size: 16px; color: #333; margin-bottom: 5px; cursor: pointer; }
+.opciones-pago input[type="radio"] { appearance: none; width: 20px; height: 20px; border: 2px solid #00aaff; border-radius: 50%; margin-right: 8px; position: relative; cursor: pointer; vertical-align: middle; }
+.opciones-pago input[type="radio"]:checked { background-color: #00aaff; border-color: #00aaff; }
+.opciones-pago input[type="radio"]:checked::after { content: ''; width: 10px; height: 10px; background-color: white; border-radius: 50%; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+
+/* Contenedor Flex para Tipo y Número Doc (Reducido) */
+.campo-flex { display: flex; gap: 4px; margin-bottom: 12px; align-items: flex-end; }
+.campo-sub { flex: 1; min-width: 0; position: relative; }
+.campo-sub:first-child { flex: 0 0 76px; margin-top: 8px; }
+
+/* Label "Tipo" (Posicionado sobre el borde) */
+.campo-sub label[for="tipo_documento"] { position: absolute; top: -8px; left: 10px; font-size: 12px; color: #565656; background-color: #fff; padding: 0 4px; pointer-events: none; font-weight: normal; display: inline; margin-bottom: 0; }
+
+/* Estilo Select 'Tipo' (Reducido) */
+.campo-sub select#tipo_documento { width: 100%; padding: 12px 28px 12px 8px; border: 1px solid #565656; border-radius: 4px; font-size: 16px; color: #333; background-color: #fff; appearance: none; background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"><path fill="%23565656" d="M7 10l5 5 5-5z"/></svg>') no-repeat right 10px center; background-size: 12px; height: 46px; transition: border-color 0.2s ease; cursor: pointer; }
+.campo-sub select#tipo_documento:focus { outline: none; border-color: #3264dc; }
+
+/* Contenedor y Estilos para Inputs con Etiqueta Flotante (Reducido) */
+.campo { margin-bottom: 12px; } /* Para Linea y Correo */
+
+.input-container-float {
+  position: relative; /* Necesario para label flotante */
+  margin-bottom: 12px; /* Espacio entre campos reducido */
+}
+/* Aplicar el margen solo si es el último campo antes de terminos */
+form .input-container-float:last-of-type {
+    margin-bottom: 0;
+}
+
+.input-container-float input {
+  height: 46px;
+  width: 100%;
+  padding: 14px 8px;
+  font-size: 16px;
+  color: #333;
+  border: 1px solid #565656; /* BORDE GRIS #565656 por defecto */
+  border-radius: 4px; /* Original */
+  background-color: #fff;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease;
+}
+
+.input-container-float label {
+  position: absolute;
+  top: 14px; /* Ajustado para nuevo padding */
+  left: 11px; font-size: 16px; color: #888; pointer-events: none;
+  transition: all 0.15s ease-out; background-color: #fff; padding: 0 4px;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  max-width: calc(100% - 22px);
+  display: inline; margin-bottom: 0; font-weight: normal;
+}
+
+/* Estado flotante del label (focus o con valor) */
+.input-container-float input:focus + label,
+.input-container-float input:not(:placeholder-shown) + label {
+  top: -8px; font-size: 12px; color: #3264dc;
+}
+
+/* Cambio de borde azul del input (focus o con valor) */
+.input-container-float input:focus,
+.input-container-float input:not(:placeholder-shown) {
+  outline: none; border-color: #3264dc;
+}
+
+/* Ocultar placeholder real */
+.input-container-float input::placeholder { color: transparent; }
+
+/* reCAPTCHA (Estilo original) */
+.g-recaptcha { margin-bottom: 15px; max-width: 100%; }
+.g-recaptcha > div { margin: 0 auto; }
+
+/* Texto Términos (Estilo inicial, alineado izquierdo) */
+p.terminos { font-size: 12px; color: #565656; text-align: left; margin-top: 20px; margin-bottom: 15px; }
+p.terminos a { color: #00aaff; text-decoration: none; }
+p.terminos a:hover { text-decoration: underline; }
+
+/* Botón (Estilos Iniciales, alineado derecha) */
+button[type="submit"] { background-color: #00aaff; color: white; padding: 10px; border: none; border-radius: 20px; cursor: pointer; width: 120px; font-size: 14px; font-weight: bold; text-transform: uppercase; display: block; margin-left: auto; margin-right: 0; margin-top: 10px; margin-bottom: 10px; transition: background-color 0.3s ease; }
+button[type="submit"]:hover { background-color: #0088cc; }
+
+/* Footer (Estilos Iniciales) */
+footer { background-color: #003087; color: white; text-align: center; padding: 15px; font-size: 12px; width: 100%; margin-top: 30px; border-top: none; }
+footer p { margin: 5px 0; color: white; } footer a { color: #00aaff; text-decoration: none; } footer a:hover { text-decoration: underline; } .redes-sociales { margin-top: 10px; } .redes-sociales a { margin: 0 8px; display: inline-block; } .redes-sociales img { width: 20px; height: 20px; vertical-align: middle; }
+
+/* El siguiente bloque @media ha sido eliminado para que el contenido se muestre en todas las pantallas. */
+/*
+@media (min-width: 481px) {
+    body::before { content: "Este sitio está optimizado para la visualización en dispositivos móviles."; display: flex; justify-content: center; align-items: center; text-align: center; padding: 40px; font-size: 18px; color: #555; background-color: #f0f0f0; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1000; }
+    main, header, footer { display: none; }
+}
+*/

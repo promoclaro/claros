@@ -1,0 +1,473 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos base para contenedores */
+.contenedor-base {
+    background-color: #fff;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.17), 0 10px 10px 0 rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    border-radius: 2px;
+    border: 1px solid transparent;
+    display: block;
+    position: relative;
+    padding: 12px;
+    padding-bottom: 20px;
+    max-width: 480px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Contenedor 1: Facturas */
+.contenedor-facturas {
+    background-color: #fff;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.17), 0 10px 10px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+    padding: 12px;
+    margin-top: 15px;
+    max-width: 480px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.factura-info {
+    position: relative;
+    min-height: 85px;
+}
+
+.factura-info p {
+    color: #565656;
+    font-size: 16px;
+    margin-bottom: 0px;
+}
+
+.factura-info .at-font-p {
+    color: #565656;
+    font-size: 1rem;
+    font-family: "robotoregular", Roboto, sans-serif;
+    font-weight: normal;
+}
+
+.factura-info .email-section {
+    display: flex;
+    align-items: center;
+    color: #565656;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.factura-info .email-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+}
+
+.factura-info .at-link {
+    color: #00C8FF;
+    text-decoration: none;
+    outline: none;
+    cursor: pointer;
+    font-family: "robotoregular", Roboto, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.factura-info .nueva-consulta {
+    position: absolute;
+    bottom: 8px;
+    right: 12px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.factura-info .nueva-consulta:hover {
+    text-decoration: underline;
+}
+
+/* Contenedor 2: Selección de facturas */
+.contenedor-info {
+    background-color: #fff;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1), 0 5px 5px 0 rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+    padding: 15px;
+    margin-top: 15px;
+    max-width: 480px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contenedor-info .at-font-h5 {
+    font-size: 1.125rem;
+    font-family: "robotoregular", Roboto, sans-serif;
+    font-weight: normal;
+    color: #00377D;
+    margin: 0;
+    padding: 0;
+}
+
+@media (max-width: 768px) {
+    .contenedor-info .at-font-h5 {
+        font-size: 1.125rem;
+    }
+}
+
+/* Contenedor 3: Detalle de factura */
+.contenedor-promo {
+    background-color: #fff;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1), 0 5px 5px 0 rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+    padding: 5px 15px 15px 15px;
+    margin-top: 15px;
+    max-width: 480px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contenedor-promo .address-value {
+    color: #565656;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: block;
+    width: 60%;
+    font-family: "robotoregular", Roboto, sans-serif;
+    font-weight: normal;
+    margin-bottom: 10px;
+    margin-top: 0;
+}
+
+.contenedor-promo .fs18 {
+    font-size: 18px !important;
+}
+
+@media (max-width: 768px) {
+    .contenedor-promo .address-value {
+        width: 80%;
+    }
+}
+
+.contenedor-promo .factura-details {
+    display: flex;
+    align-items: center;
+}
+
+.contenedor-promo .factura-checkbox {
+    width: 17px;
+    height: 17px;
+    margin-right: 10px;
+}
+
+.contenedor-promo .factura-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.contenedor-promo .factura-icon {
+    width: 35px;
+    height: 35px;
+}
+
+.contenedor-promo .price {
+    font-size: 16px;
+    color: #333;
+    font-family: "robotoregular", Roboto, sans-serif;
+    font-weight: normal;
+}
+
+@media (max-width: 768px) {
+    .contenedor-promo .price {
+        font-size: 25px;
+        color: #00377D;
+        font-weight: bold;
+        letter-spacing: 0px;
+        line-height: 40px;
+    }
+}
+
+.contenedor-promo .factura-small-icon {
+    width: 17px;
+    height: 17px;
+}
+
+.contenedor-promo .status-group {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-left: auto;
+}
+
+.contenedor-promo .factura-status {
+    color: #3264DC;
+    font-size: 14px;
+    font-family: "robotoregular", Roboto, sans-serif;
+    font-weight: bold;
+}
+
+/* Nuevo contenedor-total (de invoices.php) */
+.contenedor-total {
+    background-color: #fff;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1), 0 5px 5px 0 rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+    padding: 2px 15px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    display: none;
+    text-align: center;
+    width: 100vw;
+    position: relative;
+}
+
+.contenedor-total .total-title {
+    font-size: 1.25rem;
+    font-family: "robotoregular", Roboto, sans-serif;
+    font-weight: normal;
+    color: #565656;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.contenedor-total .total-amount {
+    font-size: 1.5rem;
+    font-family: "robotoregular", Roboto, sans-serif;
+    font-weight: bold;
+    color: rgb(0, 55, 125);
+    margin-bottom: 0;
+    margin-top: 0;
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+.contenedor-total .button-group {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.contenedor-total .btn-cancel {
+    background: transparent;
+    cursor: pointer;
+    font-family: "robotobold", Roboto, sans-serif;
+    vertical-align: middle;
+    line-height: 34px;
+    border-radius: 50px;
+    font-size: .875rem;
+    color: #00C8FF;
+    display: inline-block;
+    border: 1px solid transparent;
+    transition: .3s;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 0 18px;
+    position: relative;
+    width: auto;
+    margin: 0;
+}
+
+.contenedor-total .btn-cancel:hover {
+    background-color: #e6f7ff;
+}
+
+.contenedor-total .btn-continue {
+    background-color: #00C8FF;
+    color: #fff;
+    cursor: pointer;
+    font-family: "robotobold", Roboto, sans-serif;
+    vertical-align: middle;
+    line-height: 34px;
+    border-radius: 50px;
+    font-size: .875rem;
+    display: inline-block;
+    border: 1px solid transparent;
+    transition: .3s;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 0 30px;
+    position: relative;
+    width: auto;
+    margin: 0;
+}
+
+.contenedor-total .btn-continue:hover {
+    background-color: #00b3e6;
+}
+
+@media (max-width: 768px) {
+    .contenedor-total .btn-cancel,
+    .contenedor-total .btn-continue {
+        font-size: .875rem;
+    }
+}
+
+/* Nuevo contenedor-pago (para paymentcreditcard.php) */
+.contenedor-pago {
+    background-color: #fff;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1), 0 5px 5px 0 rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+    padding: 15px;
+    margin-top: 15px;
+    max-width: 480px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contenedor-pago .pago-title {
+    font-size: 1.25rem;
+    font-family: "robotoregular", Roboto, sans-serif;
+    font-weight: normal;
+    color: #00377D;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.contenedor-pago .pago-amount {
+    font-size: 1rem;
+    font-family: "robotoregular", Roboto, sans-serif;
+    color: #565656;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.contenedor-pago .pago-amount strong {
+    font-weight: bold;
+    color: rgb(0, 55, 125);
+}
+
+.contenedor-pago .form-group {
+    margin-bottom: 15px;
+}
+
+.contenedor-pago .form-group label {
+    display: block;
+    font-size: 1rem;
+    font-family: "robotoregular", Roboto, sans-serif;
+    color: #565656;
+    margin-bottom: 5px;
+}
+
+.contenedor-pago .form-group input {
+    width: 100%;
+    padding: 8px;
+    font-size: 1rem;
+    font-family: "robotoregular", Roboto, sans-serif;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.contenedor-pago .form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.contenedor-pago .form-group.half-width {
+    flex: 1;
+}
+
+.contenedor-pago .button-group {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.contenedor-pago .btn-cancel {
+    background: transparent;
+    cursor: pointer;
+    font-family: "robotobold", Roboto, sans-serif;
+    vertical-align: middle;
+    line-height: 34px;
+    border-radius: 50px;
+    font-size: .875rem;
+    color: #00C8FF;
+    display: inline-block;
+    border: 1px solid transparent;
+    transition: .3s;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 0 18px;
+    position: relative;
+    width: auto;
+    margin: 0;
+}
+
+.contenedor-pago .btn-cancel:hover {
+    background-color: #e6f7ff;
+}
+
+.contenedor-pago .btn-continue {
+    background-color: #00C8FF;
+    color: #fff;
+    cursor: pointer;
+    font-family: "robotobold", Roboto, sans-serif;
+    vertical-align: middle;
+    line-height: 34px;
+    border-radius: 50px;
+    font-size: .875rem;
+    display: inline-block;
+    border: 1px solid transparent;
+    transition: .3s;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 0 30px;
+    position: relative;
+    width: auto;
+    margin: 0;
+}
+
+.contenedor-pago .btn-continue:hover {
+    background-color: #00b3e6;
+}
+
+@media (max-width: 768px) {
+    .contenedor-pago .btn-cancel,
+    .contenedor-pago .btn-continue {
+        font-size: .875rem;
+    }
+    .contenedor-pago .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+}
+
+/* Sección de Pago Seguro */
+.payment-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 0;
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+.payment-footer .payment-icon {
+    width: 30px;
+    height: 30px;
+}
+
+.payment-footer .payment-text {
+    font-size: 14px;
+    color: #00377D;
+    font-family: "robotoregular", Roboto, sans-serif;
+    font-weight: normal;
+}
+
+/* Ajustes para main */
+main {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+}

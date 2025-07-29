@@ -1,0 +1,364 @@
+/* tc.css */
+
+/* Contenedor para el formulario de pago con tarjeta */
+.contenedor-pago {
+    background-color: #fff;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1), 0 5px 5px 0 rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+    padding: 15px;
+    margin-top: 5px;
+    max-width: 600px;
+    min-width: 360px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+.contenedor-pago .pago-title {
+    font-size: 1.5rem;
+    font-family: "robotoregular", Roboto, sans-serif;
+    font-weight: normal;
+    color: #00377D;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.contenedor-pago .pago-subtitle {
+    font-size: 1rem;
+    font-family: "robotoregular", Roboto, sans-serif;
+    font-weight: normal;
+    color: #00377D;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+/* Estilos del formulario */
+#credit-card-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espacio vertical principal entre grupos/filas */
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Contenedor para inputs y selects con etiqueta flotante */
+.contenedor-pago .input-container-float {
+    position: relative;
+    margin-bottom: 12px; /* Espacio debajo de elementos individuales */
+}
+
+.contenedor-pago .input-container-float select,
+.contenedor-pago .input-container-float input {
+    padding: 14px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #333;
+    font-family: 'Roboto', sans-serif;
+    width: 100%;
+    box-sizing: border-box;
+    height: 46px;
+    transition: border-color 0.2s ease;
+}
+
+/* Estilo para select con flecha personalizada */
+.contenedor-pago .input-container-float select {
+    appearance: none;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"><path fill="%23333" d="M7 10l5 5 5-5z"/></svg>') no-repeat right 10px center;
+    background-size: 12px;
+}
+
+/* Ajustar tipo-documento para texto */
+#tipo-documento {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+/* Etiqueta flotante (Estado base) */
+.contenedor-pago .input-container-float label {
+    position: absolute;
+    top: 14px;
+    left: 11px;
+    font-size: 14px;
+    color: #888 !important;
+    pointer-events: none;
+    transition: all 0.15s ease-out;
+    background-color: #fff;
+    padding: 0 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: calc(100% - 22px);
+    font-family: 'Roboto', sans-serif;
+    line-height: 18px;
+}
+
+/* Ajuste específico para la etiqueta de Número de Tarjeta en estado inicial */
+.contenedor-pago .input-container-float input#card-number:placeholder-shown + label {
+    left: 50px;
+    max-width: calc(100% - 60px);
+}
+
+
+/* Estado flotante del label para inputs (focus o con valor) */
+.contenedor-pago .input-container-float input:focus + label,
+.contenedor-pago .input-container-float input:not(:placeholder-shown) + label {
+    top: -8px;
+    font-size: 12px;
+    color: #3264DC !important;
+    line-height: 12px;
+}
+
+/* Estado flotante del label para selects (focus o sin valor) */
+.contenedor-pago .input-container-float select:focus + label,
+.contenedor-pago .input-container-float select + label {
+    top: -8px;
+    font-size: 12px;
+    color: #888 !important;
+    line-height: 12px;
+}
+
+/* Color azul solo para selects con valor válido */
+.contenedor-pago .input-container-float select.has-value + label {
+    color: #3264DC !important;
+}
+
+/* Cambio de borde en focus o con valor */
+.contenedor-pago .input-container-float input:focus,
+.contenedor-pago .input-container-float input:not(:placeholder-shown) {
+    outline: none;
+    border-color: #3264DC;
+}
+
+.contenedor-pago .input-container-float select:focus,
+.contenedor-pago .input-container-float select.has-value {
+    outline: none;
+    border-color: #3264DC;
+}
+
+/* Ocultar placeholder real */
+.contenedor-pago .input-container-float input::placeholder {
+    color: transparent;
+}
+
+/* Ajustes para inputs con íconos */
+.contenedor-pago .input-container-float .input-with-icon {
+    position: relative;
+}
+
+.contenedor-pago .input-container-float .input-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.contenedor-pago .input-container-float .input-icon img,
+.contenedor-pago .input-container-float .input-icon svg {
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.contenedor-pago .input-container-float .input-icon-right {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 38px;
+    height: 24px;
+    z-index: 1;
+}
+
+.contenedor-pago .input-container-float input#card-number {
+    padding-left: 50px;
+}
+
+.contenedor-pago .input-container-float input#expiry-date,
+.contenedor-pago .input-container-float input#cvv {
+    padding-right: 50px;
+}
+
+/* Contenedor para filas de dos campos */
+.contenedor-pago .form-row {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    gap: 3px !important;
+    align-items: center !important;
+    width: 100% !important;
+}
+
+/* Ajuste para que los contenedores de input ocupen el espacio */
+.contenedor-pago .form-row .input-container-float {
+    margin-bottom: 0 !important; /* Sin margen en filas */
+    flex-shrink: 0 !important;
+}
+
+.contenedor-pago .form-row .input-container-float select,
+.contenedor-pago .form-row .input-container-float input {
+    width: 100% !important;
+    height: 46px !important;
+    line-height: 18px !important;
+}
+
+/* Ajustes específicos para los anchos de los contenedores en las filas */
+.contenedor-pago .form-row .input-container-float:has(#cuotas),
+.contenedor-pago .form-row .input-container-float:has(#tipo-documento) {
+    width: 20% !important;
+    min-width: 60px;
+}
+
+.contenedor-pago .form-row .input-container-float:has(#expiry-date) {
+    width: 60% !important;
+    min-width: 90px;
+}
+
+.contenedor-pago .form-row .input-container-float:has(#cvv) {
+    width: 40% !important;
+    min-width: 90px;
+}
+
+.contenedor-pago .form-row .input-container-float:not(:has(#cuotas)):not(:has(#tipo-documento)):not(:has(#expiry-date)):not(:has(#cvv)) {
+    width: 80% !important;
+    min-width: 140px;
+}
+
+
+/* --- INICIO CORRECCIÓN ESPACIO VERTICAL --- */
+/* Mensajes de error (Estilo Corregido) */
+.contenedor-pago .error-message {
+    color: red;
+    font-size: 0.625rem;
+    font-family: "robotoregular", Roboto, sans-serif;
+    margin-top: 5px;
+    display: none; /* No ocupa espacio por defecto */
+}
+/* --- FIN CORRECCIÓN ESPACIO VERTICAL --- */
+
+
+/* Texto de términos */
+.contenedor-pago .terminos-texto {
+    color: #565656;
+    font-family: "robotoregular", Roboto, sans-serif;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.contenedor-pago .terminos-texto .texto-azul {
+    color: #3264DC;
+    cursor: pointer;
+}
+
+/* Botones */
+.contenedor-pago .button-group {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: nowrap;
+    margin-top: 20px;
+}
+
+.contenedor-pago .button-group .btn-cancel,
+.contenedor-pago .button-group .btn-continue {
+    width: 170px;
+    height: 40px;
+    padding: 0;
+    margin: 0;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 1;
+    cursor: pointer;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Roboto', sans-serif;
+    border: 1px solid #3264DC;
+    position: relative;
+    z-index: 1;
+    transition: opacity 0.2s ease;
+}
+
+.contenedor-pago .button-group .btn-cancel {
+    background-color: #fff;
+    color: #3264DC;
+}
+
+.contenedor-pago .button-group .btn-continue {
+    background-color: #3264DC;
+    color: #fff;
+}
+
+.contenedor-pago .button-group .btn-cancel:hover,
+.contenedor-pago .button-group .btn-continue:hover {
+    opacity: 0.85;
+}
+
+/* Estilos para el contenedor del botón Regresar */
+.regresar {
+    max-width: 600px;
+    margin: 15px auto 5px auto;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+/* Estilos existentes del botón Regresar */
+.boton-regresar {
+    text-decoration: none;
+    color: #00C8FF;
+    font-size: 14px;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 0;
+}
+.boton-regresar:hover {
+    color: #009ecc;
+}
+
+/* Estilos para el footer de pago seguro */
+.payment-footer {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 10px 15px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    box-sizing: border-box;
+}
+
+.payment-footer .payment-icon {
+    width: auto;
+    height: 24px;
+    object-fit: contain;
+    vertical-align: middle;
+}
+
+.payment-footer .payment-text {
+    font-size: 14px;
+    color: #565656;
+    font-family: 'Roboto', sans-serif;
+    margin: 0 5px;
+    line-height: 24px;
+}
