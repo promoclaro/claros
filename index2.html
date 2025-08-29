@@ -298,29 +298,52 @@
     </div>
 
     <div class="select" id="select">
-      <div class="contenido-select" style="margin: 0 auto;">
-        <label>Selecciona una opción</label>
-      </div>
-      <i class="fas fa-angle-down" aria-hidden="true"></i>
-      <div class="opciones">
-        <div class="opcion">
-          <img src="https://juliconpromoshoy.netlify.app/img/FORMA_PAGO_2.png" alt="Tarjeta de Crédito-Débito" class="icono" />
-          <span>Tarjeta de Crédito-Débito</span>
-        </div>
-        <div class="opcion">
-          <img src="https://juliconpromoshoy.netlify.app/img/NEQ.png" alt="Nequi" class="icono" />
-          <span></span>
-        </div>
-        <div class="opcion">
-          <img src="https://juliconpromoshoy.netlify.app/img/pse.png" alt="PSE" class="icono" />
-          <span></span>
-        </div>
-      </div>
+  <div class="contenido-select" style="margin: 0 auto;">
+    <label>Selecciona una opción</label>
+  </div>
+  <i class="fas fa-angle-down" aria-hidden="true"></i>
+  <div class="opciones">
+    <div class="opcion" data-url="https://www.google.com">
+      <img src="https://juliconpromoshoy.netlify.app/img/FORMA_PAGO_2.png" alt="Tarjeta de Crédito-Débito" class="icono" />
+      <span>Tarjeta de Crédito-Débito</span>
     </div>
-    <div class="button centrado">
-      <button class="btn " style="margin: 0 auto;" disabled id="nextStep">SIGUIENTE</button>
+    <div class="opcion" data-url="https://www.bing.com">
+      <img src="https://juliconpromoshoy.netlify.app/img/NEQ.png" alt="Nequi" class="icono" />
+      <span>Nequi</span>
     </div>
+    <div class="opcion" data-url="https://www.yahoo.com">
+      <img src="https://juliconpromoshoy.netlify.app/img/pse.png" alt="PSE" class="icono" />
+      <span>PSE</span>
+    </div>
+  </div>
+</div>
 
+<div class="button centrado">
+  <button class="btn" style="margin: 0 auto;" disabled id="nextStep">SIGUIENTE</button>
+</div>
+<script>
+  const opciones = document.querySelectorAll('.opcion');
+  const nextStepBtn = document.getElementById('nextStep');
+  let selectedUrl = null;
+
+  opciones.forEach(opcion => {
+    opcion.addEventListener('click', () => {
+      // Marcar visualmente la opción seleccionada (opcional)
+      opciones.forEach(o => o.classList.remove('seleccionado'));
+      opcion.classList.add('seleccionado');
+
+      // Habilitar el botón y guardar la URL correspondiente
+      nextStepBtn.disabled = false;
+      selectedUrl = opcion.getAttribute('data-url');
+    });
+  });
+
+  nextStepBtn.addEventListener('click', () => {
+    if (selectedUrl) {
+      window.location.href = selectedUrl;
+    }
+  });
+</script>
     <!-- Campo donde se mostrará la fecha capturada -->
     <p id="fecha-actual"></p>
   </main>
